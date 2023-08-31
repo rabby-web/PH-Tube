@@ -36,7 +36,10 @@ const handleLoadData = async (id) => {
     div.classList = `card w-full bg-base-100 shadow-xl`;
     div.innerHTML = `
     <figure>
+    <div>
     <img class="w-full h-64 rounded-lg" src="${c.thumbnail}" alt="Shoes" />
+    <p class="text-base p-1">Time</p>
+    </div>
     </figure>
     <div class="div p-3">
      <div class="flex">
@@ -50,7 +53,9 @@ const handleLoadData = async (id) => {
             <p class="text-lg items-center font-semibold flex"><small class="pr-1">${
               c?.authors[0]?.profile_name
             }</small>  <small> ${
-      c?.authors[0]?.verified == true ? "../p.svg" : "False"
+      c?.authors[0]?.verified == true
+        ? "<img src='../fi_10629607 (1).svg'>"
+        : ""
     }</small></p>
             <p class="text-sm">${c.category_id} views</p>
         </div>
