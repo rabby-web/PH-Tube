@@ -30,8 +30,8 @@ const handleLoadData = async (id) => {
   categoryCard.forEach((c) => {
     // console.log(c?.thumbnail);
     // console.log(c?.authors[0]?.profile_picture);
-    // console.log(c?.authors[0]?.profile_name);
-    // console.log(c?.others.views);
+    console.log(c?.authors[0]?.verified);
+    // console.log(c?.others);
     const div = document.createElement("div");
     div.classList = `card w-full bg-base-100 shadow-xl`;
     div.innerHTML = `
@@ -41,11 +41,17 @@ const handleLoadData = async (id) => {
     <div class="div p-3">
      <div class="flex">
         <div class="w-10 rounded-full m-2">
-            <img class="rounded-full w-10 h-10" src="${c?.authors[0]?.profile_picture}" />
+            <img class="rounded-full w-10 h-10" src="${
+              c?.authors[0]?.profile_picture
+            }" />
         </div>
         <div class="space-y-2">
             <h2 class="text-2xl font-bold mt-1">${c.title}</h2>
-            <p class="text-base font-semibold">${c?.authors[0]?.profile_name}</p>
+            <p class="text-lg items-center font-semibold flex"><small class="pr-1">${
+              c?.authors[0]?.profile_name
+            }</small>  <small> ${
+      c?.authors[0]?.verified == true ? "../p.svg" : "False"
+    }</small></p>
             <p class="text-sm">${c.category_id} views</p>
         </div>
      </div>
