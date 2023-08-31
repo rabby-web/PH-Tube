@@ -4,7 +4,7 @@ const handleCategory = async () => {
   );
   const data = await response.json();
   const categoryData = data.data;
-  console.log(categoryData);
+  //   console.log(categoryData);
   categoryData.forEach((category) => {
     const categoryContainer = document.getElementById("category-container");
     const p = document.createElement("p");
@@ -23,10 +23,32 @@ const handleLoadData = async (id) => {
     `https://openapi.programming-hero.com/api/videos/category/${id}`
   );
   const categoryLoadData = await response.json();
-  const categoryShowCard = categoryLoadData.data;
-  console.log(categoryShowCard);
-  categoryShowCard.forEach((category) => {
-    console.log(category);
+  const categoryCard = categoryLoadData.data;
+  console.log(categoryCard);
+  const cardContainer = document.getElementById("card-container");
+  categoryCard.forEach((c) => {
+    // console.log(c?.thumbnail);
+    // console.log(c?.authors[0]?.profile_picture);
+    // console.log(c?.authors[0]?.profile_name);
+    // console.log(c?.others.views);
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <figure>
+    <img src="${c.thumbnail}" alt="Shoes" />
+    </figure>
+    <div class="card-body">
+     <div class="flex">
+        <div class="m-1">
+            <img class="w-8" src="${c?.authors[0]?.profile_picture}" alt="">
+        </div>
+        <div>
+            <h2 class="text-xl font-bold">${c.title}</h2>
+            <p class="text-base">${c?.authors[0]?.profile_name}</p>
+            <p class="text-sm">${c.category_id}</p>
+        </div>
+     </div>
+    `;
+    cardContainer.appendChild(div);
   });
 };
 handleLoadData();
