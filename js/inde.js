@@ -10,7 +10,7 @@ const handleCategory = async () => {
     const p = document.createElement("p");
     p.innerHTML = `
     <p onclick="handleLoadData('${category.category_id}')" 
-             class="bg-slate-500 mx-2 py-2 px-4 rounded text-white text-lg font-semibold"
+             class="bg-slate-300 mx-2 py-2 px-4 rounded text-lg font-semibold"
           >
             ${category.category}
           </p>
@@ -26,6 +26,7 @@ const handleLoadData = async (id) => {
   const categoryCard = categoryLoadData.data;
   console.log(categoryCard);
   const cardContainer = document.getElementById("card-container");
+  cardContainer.innerHTML = " ";
   categoryCard.forEach((c) => {
     // console.log(c?.thumbnail);
     // console.log(c?.authors[0]?.profile_picture);
@@ -35,23 +36,23 @@ const handleLoadData = async (id) => {
     div.classList = `card w-full bg-base-100 shadow-xl`;
     div.innerHTML = `
     <figure>
-    <img class="w-full h-72 rounded-lg" src="${c.thumbnail}" alt="Shoes" />
+    <img class="w-full h-64 rounded-lg" src="${c.thumbnail}" alt="Shoes" />
     </figure>
     <div class="div p-3">
      <div class="flex">
-        <div class="w-16 h-16 rounded-full m-2">
-            <img class="rounded-full w-16 h-16" src="${c?.authors[0]?.profile_picture}" />
+        <div class="w-10 rounded-full m-2">
+            <img class="rounded-full w-10 h-10" src="${c?.authors[0]?.profile_picture}" />
         </div>
-        <div>
-            <h2 class="text-xl font-bold">${c.title}</h2>
-            <p class="text-base">${c?.authors[0]?.profile_name}</p>
-            <p class="text-sm">${c.category_id}</p>
+        <div class="space-y-2">
+            <h2 class="text-2xl font-bold mt-1">${c.title}</h2>
+            <p class="text-base font-semibold">${c?.authors[0]?.profile_name}</p>
+            <p class="text-sm">${c.category_id} views</p>
         </div>
      </div>
     `;
     cardContainer.appendChild(div);
   });
 };
-handleLoadData("1001");
+handleLoadData("1000");
 // handleLoadData();
 handleCategory();

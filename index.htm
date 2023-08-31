@@ -15,22 +15,63 @@
   <body>
     <!-- header -->
     <header>
-      <nav
-        class="flex justify-between py-3 px-4 md:px-8 bg-slate-200 shadow-lg shadow-gray-500/50"
-      >
-        <img src="./Logo.png" alt="" />
-        <button
-          class="bg-slate-600 py-2 px-4 rounded text-white text-lg font-semibold"
-        >
-          Sort By View
-        </button>
-        <button
-          class="bg-red-600 py-2 px-4 rounded text-white text-lg font-semibold"
-        >
-          Blog
-        </button>
-      </nav>
+      <div class="navbar bg-base-100 md:px-5">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li><a>Item 1</a></li>
+              <li>
+                <a>Parent</a>
+                <ul class="p-2">
+                  <li><a>Submenu 1</a></li>
+                  <li><a>Submenu 2</a></li>
+                </ul>
+              </li>
+              <li><a>Item 3</a></li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost normal-case text-xl"
+            ><img src="./Logo.png" alt=""
+          /></a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <button
+              class="bg-slate-600 py-2 px-4 rounded text-white text-lg font-semibold"
+            >
+              Sort By View
+            </button>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <button
+            class="bg-red-600 py-2 px-4 rounded text-white text-lg font-semibold"
+          >
+            Blog
+          </button>
+        </div>
+      </div>
     </header>
+    <hr />
     <!-- main -->
     <main class="container mx-auto">
       <!-- category section -->
