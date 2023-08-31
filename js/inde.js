@@ -53,6 +53,7 @@ const handleLoadData = async (id) => {
     cardContainer.appendChild(div);
   });
 };
+// const handleEmptyData =
 handleLoadData("1000");
 // handleLoadData();
 handleCategory();
