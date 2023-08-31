@@ -32,14 +32,15 @@ const handleLoadData = async (id) => {
     // console.log(c?.authors[0]?.profile_name);
     // console.log(c?.others.views);
     const div = document.createElement("div");
+    div.classList = `card w-full bg-base-100 shadow-xl`;
     div.innerHTML = `
     <figure>
-    <img src="${c.thumbnail}" alt="Shoes" />
+    <img class="w-full h-72 rounded-lg" src="${c.thumbnail}" alt="Shoes" />
     </figure>
-    <div class="card-body">
+    <div class="div p-3">
      <div class="flex">
-        <div class="m-1">
-            <img class="w-8" src="${c?.authors[0]?.profile_picture}" alt="">
+        <div class="w-16 h-16 rounded-full m-2">
+            <img class="rounded-full w-16 h-16" src="${c?.authors[0]?.profile_picture}" />
         </div>
         <div>
             <h2 class="text-xl font-bold">${c.title}</h2>
@@ -51,5 +52,6 @@ const handleLoadData = async (id) => {
     cardContainer.appendChild(div);
   });
 };
-handleLoadData();
+handleLoadData("1001");
+// handleLoadData();
 handleCategory();
