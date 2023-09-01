@@ -60,11 +60,14 @@
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
-            <button
-              class="bg-slate-600 py-2 px-4 rounded text-white text-lg font-semibold"
-            >
-              Sort By View
-            </button>
+            <div id="sort-button-wrapper" class="md:-ml-20">
+              <button
+                onclick="displayCardData('1000', true)"
+                class="btn btn-sm md:btn-md"
+              >
+                Sort by view
+              </button>
+            </div>
           </ul>
         </div>
         <div class="navbar-end">
