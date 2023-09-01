@@ -24,9 +24,13 @@ const handleLoadData = async (id) => {
   );
   const categoryLoadData = await response.json();
   const categoryCard = categoryLoadData.data;
-  // if (categoryCard.length == 0) {
-  //   console.log("hello");
-  // }
+
+  const empty = document.getElementById("empty-container");
+  if (!categoryCard[0]) {
+    empty.classList.remove("hidden");
+  } else {
+    empty.classList.add("hidden");
+  }
   console.log(categoryCard);
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = " ";
@@ -37,12 +41,19 @@ const handleLoadData = async (id) => {
     // console.log(c?.authors[0]?.verified);
     // console.log(c?.others);
     const div = document.createElement("div");
+    const minutesAll = c.others.posted_date / 60;
+    const hours = minutesAll / 60;
+    const minutes = minutesAll % 60;
     div.classList = `card w-full bg-base-100 shadow-xl`;
     div.innerHTML = `
     <figure>
-    <div>
+    <div class="relative">
     <img class="w-full h-64 rounded-lg" src="${c.thumbnail}" alt="Shoes" />
-    <p class="text-base p-1">Time</p>
+    <p class="bg-[#171717] absolute right-4 bottom-3 rounded-md p-1 text-[12px] text-white ${
+      c.others.posted_date !== "" ? "" : "hidden"
+    }">
+                        ${Math.trunc(hours)} hrs ${Math.trunc(minutes)} minute
+                    </p>
     </div>
     </figure>
     <div class="div p-3">
@@ -68,21 +79,21 @@ const handleLoadData = async (id) => {
     cardContainer.appendChild(div);
   });
   // empty array show icon
-  if (categoryCard.length == 0) {
-    // console.log("hello");
-    const iconShow = document.getElementById("icon-show");
-    const div = document.createElement("div");
-    div.innerHTML = `
-        <div class="flex flex-col justify-center">
-            <img class="w-40 mx-auto" src="./Icon.png" alt="" />
-            <h2 class="text-4xl font-bold text-center mt-4">
-              Oops!! Sorry, There is no <br />
-              content here
-            </h2>
-        </div>
-    `;
-    iconShow.appendChild(div);
-  }
+  // if (categoryCard.length == 0) {
+  //   // console.log("hello");
+  //   const iconShow = document.getElementById("icon-show");
+  //   const div = document.createElement("div");
+  //   div.innerHTML = `
+  //       <div class="flex flex-col justify-center">
+  //           <img class="w-40 mx-auto" src="./Icon.png" alt="" />
+  //           <h2 class="text-4xl font-bold text-center mt-4">
+  //             Oops!! Sorry, There is no <br />
+  //             content here
+  //           </h2>
+  //       </div>
+  //   `;
+  //   iconShow.appendChild(div);
+  // }
 };
 // const handleEmptyData =
 handleLoadData("1000");
