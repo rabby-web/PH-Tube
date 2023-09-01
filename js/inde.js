@@ -27,7 +27,7 @@ const displayMenuData = (menuCategoryData) => {
   });
 };
 
-const displayCardData = async (categoryId, sotto = false) => {
+const displayCardData = async (categoryId, ts = false) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
   );
@@ -39,15 +39,15 @@ const displayCardData = async (categoryId, sotto = false) => {
 
   cardContainer.innerHTML = "";
 
-  const empltyContainer = document.getElementById("empty-container");
+  const emptyContainer = document.getElementById("empty-container");
 
   if (!trimCard[0]) {
-    empltyContainer.classList.remove("hidden");
+    emptyContainer.classList.remove("hidden");
   } else {
-    empltyContainer.classList.add("hidden");
+    emptyContainer.classList.add("hidden");
   }
 
-  if (sotto == true) {
+  if (ts == true) {
     trimCard.sort((a, b) => {
       return parseFloat(b.others.views) - parseFloat(a.others.views);
     });
