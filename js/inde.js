@@ -68,9 +68,7 @@ const handleLoadData = async (id) => {
             <p class="text-lg items-center font-semibold flex"><small class="pr-1">${
               c?.authors[0]?.profile_name
             }</small>  <small> ${
-      c?.authors[0]?.verified == true
-        ? "<img src='../fi_10629607 (1).svg'>"
-        : ""
+      c?.authors[0]?.verified == true ? "<img src='../image/svg-icon.svg'>" : ""
     }</small></p>
             <p class="text-sm">${c.category_id} views</p>
         </div>
