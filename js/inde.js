@@ -76,22 +76,6 @@ const handleLoadData = async (id) => {
     `;
     cardContainer.appendChild(div);
   });
-  // empty array show icon
-  // if (categoryCard.length == 0) {
-  //   // console.log("hello");
-  //   const iconShow = document.getElementById("icon-show");
-  //   const div = document.createElement("div");
-  //   div.innerHTML = `
-  //       <div class="flex flex-col justify-center">
-  //           <img class="w-40 mx-auto" src="./Icon.png" alt="" />
-  //           <h2 class="text-4xl font-bold text-center mt-4">
-  //             Oops!! Sorry, There is no <br />
-  //             content here
-  //           </h2>
-  //       </div>
-  //   `;
-  //   iconShow.appendChild(div);
-  // }
 };
 // const handleEmptyData =
 handleLoadData("1000");
