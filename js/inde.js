@@ -19,7 +19,7 @@ const displayMenuData = (menuCategoryData) => {
   menuCategoryData.forEach((singleMenu) => {
     const div = document.createElement("div");
     div.innerHTML = `
-            <p onclick="displayCardData('${singleMenu.category_id}') ; sortFunc('${singleMenu.category_id}') ; " class="px-6 py-2 m-2 text-xl rounded font-semibold bg-slate-300">${singleMenu.category}</p>
+            <p onclick="displayCardData('${singleMenu.category_id}') ; sortFunc('${singleMenu.category_id}') ; " class="px-3 md:px-6 py-2 m-1 md:m-2 text-base md:text-xl rounded font-semibold bg-slate-300">${singleMenu.category}</p>
         `;
     menuContainer.appendChild(div);
 
@@ -62,12 +62,12 @@ const displayCardData = async (categoryId, sotto = false) => {
 
     div.innerHTML = `
             
-            <div class="max-w-86">
+            <div class="max-w-86 shadow-lg rounded-lg">
                 <figure class="relative">
-                <img class="rounded-lg h-48 w-full" src="${
+                <img class="rounded-lg h-56 w-full" src="${
                   singleCardData.thumbnail
                 }" alt="Shoes"/>
-                <p class="bg-[#171717] absolute right-4 bottom-3 rounded-md p-1 text-[10px] text-white ${
+                <p class="bg-[#171717] absolute right-4 bottom-3 rounded-md p-1 text-[12px] text-white ${
                   singleCardData.others.posted_date !== "" ? "" : "hidden"
                 }">
                 ${Math.trunc(allHours)} hrs ${Math.trunc(sngleMinutes)} minute
@@ -75,15 +75,15 @@ const displayCardData = async (categoryId, sotto = false) => {
                 </figure>
                 <div class="p-4 flex gap-2">
 
-                    <img class="w-9 h-9 rounded-full"
+                    <img class="w-12 h-12 rounded-full"
                         src="${singleCardData?.authors[0]?.profile_picture}"
                         alt="">
 
                     <div>
-                        <h2 class="text-md font-bold">${
+                        <h2 class="text-xl font-bold">${
                           singleCardData.title
                         }</h2>
-                        <div class="flex gap-2 items-center mt-3">
+                        <div class="flex gap-2 items-center mt-2">
                             <p class="text-md">${
                               singleCardData?.authors[0]?.profile_name
                             }</p>
