@@ -4,7 +4,7 @@ const handleCategory = async () => {
   );
   const data = await response.json();
   const categoryData = data.data;
-  //   console.log(categoryData);
+  // console.log(categoryData);
   categoryData.forEach((category) => {
     const categoryContainer = document.getElementById("category-container");
     const p = document.createElement("p");
@@ -24,13 +24,17 @@ const handleLoadData = async (id) => {
   );
   const categoryLoadData = await response.json();
   const categoryCard = categoryLoadData.data;
+  // if (categoryCard.length == 0) {
+  //   console.log("hello");
+  // }
   console.log(categoryCard);
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = " ";
   categoryCard.forEach((c) => {
+    console.log(c.id);
     // console.log(c?.thumbnail);
     // console.log(c?.authors[0]?.profile_picture);
-    console.log(c?.authors[0]?.verified);
+    // console.log(c?.authors[0]?.verified);
     // console.log(c?.others);
     const div = document.createElement("div");
     div.classList = `card w-full bg-base-100 shadow-xl`;
@@ -63,6 +67,22 @@ const handleLoadData = async (id) => {
     `;
     cardContainer.appendChild(div);
   });
+  // empty array show icon
+  if (categoryCard.length == 0) {
+    // console.log("hello");
+    const iconShow = document.getElementById("icon-show");
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <div class="flex flex-col justify-center">
+            <img class="w-40 mx-auto" src="./Icon.png" alt="" />
+            <h2 class="text-4xl font-bold text-center mt-4">
+              Oops!! Sorry, There is no <br />
+              content here
+            </h2>
+        </div>
+    `;
+    iconShow.appendChild(div);
+  }
 };
 // const handleEmptyData =
 handleLoadData("1000");
