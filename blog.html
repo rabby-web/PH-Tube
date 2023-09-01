@@ -24,27 +24,43 @@
    openFaq6: false
    }
    "
-      class="relative z-20 overflow-hidden bg-slate-200 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+      class="relative z-20 overflow-hidden bg-slate-200 pt-10 pb-12 lg:pt-[120px] lg:pb-[90px]"
     >
       <div class="container mx-auto">
         <div class="-mx-4 flex flex-wrap">
-          <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-              <span
-                class="mb-2 block text-4xl font-bold text-primary text-purple-700"
-              >
-                FAQ
-              </span>
-              <h2
-                class="mb-4 text-3xl font-bold text-blue-600 sm:text-4xl md:text-[40px]"
-              >
-                ES6 JavaScript Question
-              </h2>
+          <div class="w-full px-4 m-4">
+            <div class="md:flex justify-between items-center">
+              <div class="flex-1">
+                <img class="w-full rounded" src="./image/faq.png" alt="" />
+              </div>
+              <div class="flex-1">
+                <div
+                  class="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20"
+                >
+                  <span
+                    class="mb-2 block text-4xl font-bold text-primary text-rose-700"
+                  >
+                    Blog FAQ ES-6
+                  </span>
+                  <h2
+                    class="mb-4 text-3xl font-bold text-blue-600 sm:text-4xl md:text-[40px]"
+                  >
+                    JavaScript Questions
+                  </h2>
+                  <a href="./index.htm"
+                    ><button
+                      class="py-2 px-5 rounded bg-[#FF1F3D] text-xl text-white hover:text-black"
+                    >
+                      Go PH Tube
+                    </button></a
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="-mx-4 flex flex-wrap">
-          <div class="w-full px-4 lg:w-1/2">
+          <div class="w-full mx-2 px-4 lg:w-full">
             <div
               class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-4 sm:p-8 lg:px-6 xl:px-8"
             >
@@ -127,91 +143,6 @@
                   devices can connect to and communicate with each other. A REST
                   API is an API that conforms to the design principles of the
                   REST, or representational state transfer architectural style.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="w-full px-4 lg:w-1/2">
-            <div
-              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-4 sm:p-8 lg:px-6 xl:px-8"
-            >
-              <button
-                class="faq-btn flex w-full text-left"
-                @click="openFaq4 = !openFaq4"
-              >
-                <img
-                  class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center"
-                  src="./image/svg-icon.svg"
-                  alt=""
-                />
-                <div class="w-full">
-                  <h4 class="text-lg font-semibold text-black">
-                    What is the V8 engine JavaScript?
-                  </h4>
-                </div>
-              </button>
-              <div x-show="openFaq4" class="faq-content pl-[62px]">
-                <p class="py-3 text-base leading-relaxed text-body-color">
-                  Chrome V8 is a JavaScript engine, which means that it executes
-                  JavaScript code. Originally, JavaScript was written to be
-                  executed by web browsers. Chrome V8, or just V8, can execute
-                  JavaScript code either within or outside of a browser, which
-                  makes server-side scripting possible.
-                </p>
-              </div>
-            </div>
-            <div
-              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-4 sm:p-8 lg:px-6 xl:px-8"
-            >
-              <button
-                class="faq-btn flex w-full text-left"
-                @click="openFaq5 = !openFaq5"
-              >
-                <img
-                  class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center"
-                  src="./image/svg-icon.svg"
-                  alt=""
-                />
-                <div class="w-full">
-                  <h4 class="text-lg font-semibold text-black">
-                    What is a global variable in JS?
-                  </h4>
-                </div>
-              </button>
-              <div x-show="openFaq5" class="faq-content pl-[62px]">
-                <p class="py-3 text-base leading-relaxed text-body-color">
-                  Variables that are created inside a function are local
-                  variables, and local variables can only be referred to by the
-                  code within the function. Variables created outside of
-                  functions are global variables, and the code in all functions
-                  has access to all global variables.
-                </p>
-              </div>
-            </div>
-            <div
-              class="single-faq mb-8 w-full rounded-lg border border-[#F3F4FE] bg-white p-4 sm:p-8 lg:px-6 xl:px-8"
-            >
-              <button
-                class="faq-btn flex w-full text-left"
-                @click="openFaq6 = !openFaq6"
-              >
-                <img
-                  class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center"
-                  src="./image/svg-icon.svg"
-                  alt=""
-                />
-                <div class="w-full">
-                  <h4 class="text-lg font-semibold text-black">
-                    How long we deliver your first blog post?
-                  </h4>
-                </div>
-              </button>
-              <div x-show="openFaq6" class="faq-content pl-[62px]">
-                <p class="py-3 text-base leading-relaxed text-body-color">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
                 </p>
               </div>
             </div>
