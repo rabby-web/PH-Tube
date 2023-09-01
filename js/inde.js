@@ -6,20 +6,20 @@ const loadMenuData = async () => {
   );
   const data = await res.json();
 
-  const menuTrimData = data.data;
+  const menuCategoryData = data.data;
 
-  displayMenuData(menuTrimData);
+  displayMenuData(menuCategoryData);
 
   menuTrimGlobal = data;
 };
 
-const displayMenuData = (menuTrimData) => {
+const displayMenuData = (menuCategoryData) => {
   const menuContainer = document.getElementById("category-container");
 
-  menuTrimData.forEach((singleMenu) => {
+  menuCategoryData.forEach((singleMenu) => {
     const div = document.createElement("div");
     div.innerHTML = `
-            <button onclick="displayCardData('${singleMenu.category_id}') ; sortFunc('${singleMenu.category_id}') ; " class="btn btn-sm">${singleMenu.category}</button>
+            <p onclick="displayCardData('${singleMenu.category_id}') ; sortFunc('${singleMenu.category_id}') ; " class="px-6 py-2 m-2 text-xl rounded font-semibold bg-slate-300">${singleMenu.category}</p>
         `;
     menuContainer.appendChild(div);
 
@@ -53,10 +53,10 @@ const displayCardData = async (categoryId, sotto = false) => {
     });
   }
 
-  trimCard.forEach((singleCard) => {
+  trimCard.forEach((singleCardData) => {
     const div = document.createElement("div");
 
-    const allMinute = singleCard.others.posted_date / 60;
+    const allMinute = singleCardData.others.posted_date / 60;
     const allHours = allMinute / 60;
     const sngleMinutes = allMinute % 60;
 
@@ -65,10 +65,10 @@ const displayCardData = async (categoryId, sotto = false) => {
             <div class="max-w-86">
                 <figure class="relative">
                 <img class="rounded-lg h-48 w-full" src="${
-                  singleCard.thumbnail
+                  singleCardData.thumbnail
                 }" alt="Shoes"/>
                 <p class="bg-[#171717] absolute right-4 bottom-3 rounded-md p-1 text-[10px] text-white ${
-                  singleCard.others.posted_date !== "" ? "" : "hidden"
+                  singleCardData.others.posted_date !== "" ? "" : "hidden"
                 }">
                 ${Math.trunc(allHours)} hrs ${Math.trunc(sngleMinutes)} minute
             </p>
@@ -76,23 +76,25 @@ const displayCardData = async (categoryId, sotto = false) => {
                 <div class="p-4 flex gap-2">
 
                     <img class="w-9 h-9 rounded-full"
-                        src="${singleCard?.authors[0]?.profile_picture}"
+                        src="${singleCardData?.authors[0]?.profile_picture}"
                         alt="">
 
                     <div>
-                        <h2 class="text-md font-bold">${singleCard.title}</h2>
+                        <h2 class="text-md font-bold">${
+                          singleCardData.title
+                        }</h2>
                         <div class="flex gap-2 items-center mt-3">
                             <p class="text-md">${
-                              singleCard?.authors[0]?.profile_name
+                              singleCardData?.authors[0]?.profile_name
                             }</p>
                             <small> ${
-                              singleCard?.authors[0]?.verified == true
-                                ? "<img src='./images/verified.png'>"
+                              singleCardData?.authors[0]?.verified == true
+                                ? "<img src='../image/svg-icon.svg'>"
                                 : ""
                             }</small>
                         </div>
                         <p class="text-md">${
-                          singleCard?.others?.views
+                          singleCardData?.others?.views
                         } views</p>
                     </div>
 
